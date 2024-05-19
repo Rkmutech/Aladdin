@@ -1,0 +1,130 @@
+<!Doctype HTML>
+<html>
+
+<head>
+    <title> Admin </title>
+    <link rel="stylesheet" href="/css/AdminArea.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <p class="logo"><span>A</span>-Aladdin</p>
+        <a class="/AdminArea" href="#"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
+        <a href="/AdminArea" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
+        <a href="/user" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;Customers</a>
+        <a href="/inventory" class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Inventory</a>
+        <a href="/report" class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;Reports</a>
+        <a href="/add" class="icon-a"><i class="fa fa-list-alt icons"></i> &nbsp;&nbsp;Add</a>
+    </div>
+    <div id="main">
+
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Dashboard</span>
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav2">&#9776; Dashboard</span>
+            </div>
+
+            <div class="col-div-6">
+                <div class="profile">
+
+                    <img src="/images/user.png" class="pro-img" />
+                    <p>Ram Kumar <span>Admin</span></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <br/><br/>
+        <div class="col-div-8">
+            <div class="box-8">
+                <div class="content-box">
+                    <table>
+                        <form action="/auth/editproduct" method="POST" enctype="multipart/form-data">
+                            <%
+                        if(editproductData.length!=0){
+                        editproductData.forEach(function(results){
+                        %>
+                                <tr>
+                                    <td><label for="">Product ID</label></td>
+                                    <td><input type="text" name="pro_id" value="<%= results.pro_id %>" onkeydown="return false"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Product Category</label></td>
+                                    <td><input type="text" name="pro_cat" value="<%= results.pro_cat %>" onkeydown="return false"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Product Name</label></td>
+                                    <td><input type="text" name="pro_name" value="<%= results.pro_name %>"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Product Image</label></td>
+                                    <td><input type="file" name="pro_img" onchange="loadFile(event)"></td>
+                                    <td><img src="http://localhost:8080/images/upload_images/<%=results.pro_img %>" id="output" width="100px" height="130px" alt="">
+                                        <br>
+                                        <span id="filename"><%=results.pro_img %></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="">Description</label></td>
+                                    <td><textarea name="pro_desc" id="pro_desc" cols="50" rows="5"><%=results.pro_des %></textarea></td>
+                                </tr>
+                                <tr align="center">
+                                    <td><button type="button" onclick="location.href='/viewproduct'">Cancel</button></td>
+                                    <td colspan="2"><button type="submit">Submit</button></td>
+                                    <td></td>
+                                </tr>
+                                <%})
+                        }
+                        %>
+                        </form>
+                        <script>
+                            var loadFile = function(event) {
+                                var image = document.getElementById('output');
+                                image.src = URL.createObjectURL(event.target.files[0]);
+                                document.getElementById('filename').innerHTML = event.target.files[0].name;
+                            };
+                        </script>
+                        <div>
+                            <span class="message flex-div">
+                                <h3><%=locals.message ? message : ''%></h3>
+                            </span>
+                        </div>
+                    </table>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script>
+                    $(".nav").click(function() {
+                        $("#mySidenav").css('width', '70px');
+                        $("#main").css('margin-left', '70px');
+                        $(".logo").css('visibility', 'hidden');
+                        $(".logo span").css('visibility', 'visible');
+                        $(".logo span").css('margin-left', '-10px');
+                        $(".icon-a").css('visibility', 'hidden');
+                        $(".icons").css('visibility', 'visible');
+                        $(".icons").css('margin-left', '-8px');
+                        $(".nav").css('display', 'none');
+                        $(".nav2").css('display', 'block');
+                    });
+
+                    $(".nav2").click(function() {
+                        $("#mySidenav").css('width', '300px');
+                        $("#main").css('margin-left', '300px');
+                        $(".logo").css('visibility', 'visible');
+                        $(".icon-a").css('visibility', 'visible');
+                        $(".icons").css('visibility', 'visible');
+                        $(".nav").css('display', 'block');
+                        $(".nav2").css('display', 'none');
+                    });
+                </script>
+
+</body>
+
+
+</html>

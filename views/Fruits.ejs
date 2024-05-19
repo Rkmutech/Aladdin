@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+
+<head>
+      <title aligen="center">  Aladdin shopping </title> 
+    
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/reg.css" />
+    <link rel="stylesheet" href="/css/product.css" />
+
+  <!-- Custom StyleSheet -->
+  <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+
+    <header>
+
+        <div class="header-1">
+
+            <a href="/Home" class="logo">Aladdin</a>
+            
+            <form action="" class="search-box-container">
+                <input type="search" id="search-box" placeholder="search here...">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+
+        </div>
+        <div class="header-2">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="/Home">home</a>
+                <a href="/vegetables">Vegetable</a>
+                <a href="/fruits">Fruits</a>
+                <a href="/Dairyproducts">Dairy products</a>
+                <a href="/meats">Meats</a>
+                
+                  <a href="/Add2cart" class="fas fa-heart"></a>
+                  <a href="/signin" class="fas fa-user-circle"></a>
+                  <a href="/register" class="fas fa-user-circle"></a>
+              
+            </nav>
+
+            
+
+        </div>
+
+    </header>
+
+<body>
+
+  
+
+  <section class="section products">
+    <div class="products-layout container">
+      <div class="col-1-of-4">
+        <div>
+          <div class="block-title">
+            <h3>Category</h3>
+          </div>
+
+          <ul class="block-content">
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Vegetables</span>
+                <small>(10)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Daiiry Products</span>
+                <small>(7)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span> Meats</span>
+                <small>(3)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span></span>
+                <small>(3)</small>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="block-title">
+            <h3>Brands</h3>
+          </div>
+
+          <ul class="block-content">
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Gucci</span>
+                <small>(10)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Burberry</span>
+                <small>(7)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span> Accessories</span>
+                <small>(3)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Valentino</span>
+                <small>(3)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Dolce & Gabbana</span>
+                <small>(3)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Hogan</span>
+                <small>(3)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Moreschi</span>
+                <small>(3)</small>
+              </label>
+            </li>
+
+            <li>
+              <input type="checkbox" name="" id="">
+              <label for="">
+                <span>Givenchy</span>
+                <small>(3)</small>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-3-of-4">
+        <form action="">
+          <div class="item">
+            <label for="sort-by">Sort By</label>
+            <select name="sort-by" id="sort-by">
+              <option value="title" selected="selected">Name</option>
+              <option value="number">Price</option>
+              <option value="search_api_relevance">Relevance</option>
+              <option value="created">Newness</option>
+            </select>
+          </div>
+          <div class="item">
+            <label for="order-by">Order</label>
+            <select name="order-by" id="sort-by">
+              <option value="ASC" selected="selected">ASC</option>
+              <option value="DESC">DESC</option>
+            </select>
+          </div>
+          <a href="">Apply</a>
+        </form>
+
+        <div class="product-layout">
+
+          <div class="product_view">
+            <h3></h3>            
+            <div class="categories">
+                <div class="flex-div">
+                <% if(vegData.length != 0){
+                    vegData.forEach(function(results){ %>
+                        <div class="cat">            
+                            <a href="/productview/<%=results.inventory_id %>"><img src="http://localhost:8080/images/upload_images/<%=results.pro_img %>" width="150px" height="150px">
+                            <h4><%= results.pro_name %></h4>
+                            <p style="color: red;">Rs.<%= results.pro_price %></p></a>
+                        </div>
+                        <% })
+                        } %> 
+                    </div> 
+                </div>                                   
+            </div>
+        </div>
+      </div>
+
+        <!-- PAGINATION -->
+        <ul class="pagination">
+          <span>1</span>
+          <span>2</span>
+          <span class="icon">››</span>
+          <span class="last">Last »</span>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="section footer">
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-center">
+          <h3>EXTRAS</h3>
+          <a href="#">Brands</a>
+          <a href="#">Gift Certificates</a>
+          <a href="#">Affiliate</a>
+          <a href="#">Specials</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>INFORMATION</h3>
+          <a href="#">About Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Site Map</a>
+        </div>
+        <div class="footer-center">
+          <h3>MY ACCOUNT</h3>
+          <a href="#">My Account</a>
+          <a href="#">Order History</a>
+          <a href="#">Wish List</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-center">
+          <h3>CONTACT US</h3>
+          <div>
+            <span>
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+            42 Dream House, Dreammy street, 7131 Dreamville, USA
+          </div>
+          <div>
+            <span>
+              <i class="far fa-envelope"></i>
+            </span>
+            company@gmail.com
+          </div>
+          <div>
+            <span>
+              <i class="fas fa-phone"></i>
+            </span>
+            456-456-4512
+          </div>
+          <div class="payment-methods">
+            <img src="./images/payment.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Custom Scripts -->
+  <script src="./js/index.js"></script>
+</body>
+
+</html>

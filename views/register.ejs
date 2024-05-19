@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/reg.css" />
+
+    <title>Aladdin Register </title>
+</head>
+
+<body>
+    <div class="sign-up ">
+        <div class="main-logo-signup ">
+            <!-- <a href="/Home"><img src="/images/Aladdin reg 5.png "></a> -->
+        </div>
+        <div class="content-Form-register content-Form ">
+            <form action="/auth/register" method="POST">
+                <h1>Sign up</h1>
+                <label>Name</label><br>
+                <input type="text" placeholder="First Name" name="first_name" required>
+                <input type="text" placeholder="Last Name" name="last_name" required>
+                <label class="dob">Date of Birth</label>
+                <label class="gender-Right">Gender</label><br>
+                <input type="date" name="dob" required>
+                <select name="gender" id="" class="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+                <label>Email</label>
+                <label class="phone-Right">Phone No</label><br>
+                <input type="email" name="email" required>
+                <input type="number" name="phoneno" required>
+                <label>Password</label>
+                <label class="conf-pass-Right">Confirm-password</label><br>
+                <input type="password" name="pass" required>
+                <input type="password" name="cfm_pass" required>
+                <label>Address</label><br>
+                <input type="text" class="address" placeholder="Door No / Flat No" name="door" required>
+                <input type="text" class="address" placeholder="Street Line" name="street" required>
+                <label class="state-label">State</label>
+                <label class="city-label">City</label>
+                <label class="pin-label">Pincode</label><br>
+                <input type="text" class="address-text" name="state" required>
+                <input type="text" class="address-text" name="city" required>
+                <input type="text" class="address-text" name="pin" required>
+                <button class="continue" type="submit">Submit</button>
+                <button class="continue" type="submit" >shopkepper Account</button> 
+                <hr>
+                <label class="sign-up-already">Have an account already?</label>
+                <button class="recover" type="button" onclick="location.href='/signin'">sign-in</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <span><%=locals.message ? message : ''%></span>
+    </d..iv>
+</body>
+
+</html>

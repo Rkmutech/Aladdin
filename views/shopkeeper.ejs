@@ -1,0 +1,99 @@
+<!Doctype HTML>
+<html>
+
+<head>
+    <title> Admin </title>
+    <link rel="stylesheet" href="/css/AdminArea.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <p class="logo"><span>A</span>-Aladdin</p>
+        <a class="/AdminArea" href="#"><i class="fa fa-home"></i>&nbsp;&nbsp;Home</a>
+        <a href="/AdminArea" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
+        <a href="/user" class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;Customers</a>
+        
+        <a href="/report" class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Report</a>
+        <a href="/inventory.ejs" class="icon-a"><i class="fa fa-tasks icons"></i> &nbsp;&nbsp;Inventory</a>
+        <!-- <a href="/report" class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;report</a> -->
+        <a href="/add" class="icon-a"><i class="fa fa-list-alt icons"></i> &nbsp;&nbsp;Add</a>
+
+    </div>
+    <div id="main">
+
+        <div class="head">
+            <div class="col-div-6">
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav">&#9776; Dashboard</span>
+                <span style="font-size:30px;cursor:pointer; color: white;" class="nav2">&#9776; Dashboard</span>
+            </div>
+
+            <div class="col-div-6">
+                <div class="profile">
+
+                    <img src="/images/user.png" class="pro-img" />
+                    <p>Ram Kumar <span>Admin</span></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix"></div>
+        <br/>
+        <div class="clearfix"></div>
+        <br/><br/>
+        <div width="100%" height="110%">
+            <div class="box-8">
+                <div class="content-box">
+                    <p>Top Selling Projects <span>Sell All</span></p>
+                    <br/>
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <td>Product ID</td>
+                                <td>Product Image</td>
+                                <td>Product Name</td>
+                                <td>Actions</td>
+                            </tr>
+                            <tbody>
+                                <%
+                                if(productData.length!=0){
+                                productData.forEach(function(data){
+                                %>
+                                    <tr>
+                                        <td align="center">
+                                            <%=data.pro_id %>
+                                        </td>
+                                        <td><img src="http://localhost:8000/images/upload_images/<%=data.pro_img %>" width="100px" height="130px" alt=""></td>
+                                        <td>
+                                            <%=data.pro_name %>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <a href="/editproduct/<%=data.pro_id %>"><img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/30/000000/external-edit-interface-kiranshastry-lineal-color-kiranshastry.png" /></a>
+                                                <a href="/deleteproduct/<%=data.pro_id %>"><img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/30/26e07f/external-delete-miscellaneous-kiranshastry-lineal-color-kiranshastry.png" /></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                        <% } else{ %>
+                                            <tr>
+                                                <td colspan="4" align="center" style="font-size:25px">No Data Found!</td>
+                                            </tr>
+                                            <% } %>
+                            </tbody>
+                        </thead>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</body>
+
+
+</html>

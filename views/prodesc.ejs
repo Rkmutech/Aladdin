@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+      <title aligen="center">  Aladdin shopping </title> 
+    <link rel="stylesheet" href="/css/new.css" />
+    <!--<link rel="stylesheet" type="text/css" href="/css/Aladdin.css ">!-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/reg.css" />
+    
+   
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+
+    <header>
+
+        <div class="header-1">
+
+            <a href="/Home" class="logo">Aladdin</a>
+            
+            <form action="" class="search-box-container">
+                <input type="search" id="search-box" placeholder="search here...">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+
+        </div>
+        <div class="header-2">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="/Home">home</a>
+                <a href="/vegetables">Vegetable</a>
+                <a href="/fruits">Fruits</a>
+                <a href="/Dairyproducts">Dairy products</a>
+                <a href="/meats">Meats</a>
+            </nav>
+
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="/Add2cart" class="fas fa-heart"></a>
+                <a href="/signin" class="fas fa-user-circle"></a>
+                <a href="/register" class="fas fa-user-circle"></a>
+            </div>
+
+        </div>
+
+    </header>
+    
+    <div class="small-container single-product">
+        <% if(viewproductData.length != 0){
+            viewproductData.forEach(function(results){ %>
+        <div class="row">
+            <div class="col-2">
+                <img src="http://localhost:5000/images/upload_images/<%=results.pro_img %>" alt="" width="200px" height="280px">
+            </div>
+            <div class="col-2">
+                <form action="/auth/cart" method="POST">
+                    <input type="hidden" name="inventory_id" value="<%=results.inventory_id %>">
+                    <p><a href="" style="color:black">Main </a>/ <%=results.pro_cat %></p>
+                    <h1><%=results.pro_name %></h1>
+                    <h4>Rs.<input type="text" id="price" name="price" value="<%=results.pro_price %>" style="border: none; width: 150px;" value="Rs.<%=results.pro_price %>" readonly></h4>
+                    <input type="text" value="" name="quantity" id="quantity" onkeyup="multiply(this)" required>
+                    <input type="hidden" name="total_amt" id="total_amt">
+                    <button type="submit" class="btn">Add To Cart</button>
+                    <h3>Product Details <i class="las la-indent"></i></h3>
+                    <br>
+                    <p><%=results.pro_desc %></p>
+                </form>                    
+            </div>
+        </div>
+        <% })
+        } %>
+    </div>
+    
+    <!--footer-->
+    <footer id="footer" class="section footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-center">
+                    <h3>EXTRAS</h3>
+                    <a href="#">Brands</a>
+                    <a href="#">Gift Certificates</a>
+                    <a href="#">Affiliate</a>
+                    <a href="#">Specials</a>
+                    <a href="#">Site Map</a>
+                </div>
+                <div class="footer-center">
+                    <h3>INFORMATION</h3>
+                    <a href="#">About Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Site Map</a>
+                </div>
+                <div class="footer-center">
+                    <h3>MY ACCOUNT</h3>
+                    <a href="#">My Account</a>
+                    <a href="#">Order History</a>
+                    <a href="#">Wish List</a>
+                    <a href="#">Newsletter</a>
+                    <a href="#">Returns</a>
+                </div>
+                <div class="footer-center">
+                    <h3>CONTACT US</h3>
+                    <div>
+                        <span>
+              <i class="fas fa-map-marker-alt"></i>
+            </span> 42 Dream House, Dreammy street, 7131 Dreamville, USA
+                    </div>
+                    <div>
+                        <span>
+              <i class="far fa-envelope"></i>
+            </span> ram16ubc627@gmail.com
+                    </div>
+                    <div>
+                        <span>
+              <i class="fas fa-phone"></i>
+            </span> 8667635102
+                    </div>
+                    <div class="payment-methods">
+                        <img src="/images/payment.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+
+
+                <div class="share">
+                    <a href="#" class="btn fab fa-facebook-f"></a>
+                    <a href="#" class="btn fab fa-twitter"></a>
+                    <a href="#" class="btn fab fa-instagram"></a>
+                    <a href="#" class="btn fab fa-linkedin"></a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!--footer-->
+    <script src=" js/new.js"></script>
+    <script src="js/aladdin.js"></script>
+
+</body>
+
+</html>
